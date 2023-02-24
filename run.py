@@ -32,7 +32,7 @@ class DockerWechatHook:
         with open('/root/.vnc/passwd', 'wb') as f:
             f.write(passwd_output.stdout)
         os.chmod('/root/.vnc/passwd', 0o700)
-        self.vnc = subprocess.Popen(['/usr/bin/vncserver','-localhost',
+        self.vnc = subprocess.Popen(['/usr/bin/vncserver','-verbose','-localhost',
             'no', '-xstartup', '/usr/bin/openbox' ,':5'])
 
     def run_wechat(self):
