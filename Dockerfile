@@ -15,8 +15,9 @@ EXPOSE 5905
 
 
 RUN apt update && \
-    apt --no-install-recommends install wget winbind samba tigervnc-standalone-server tigervnc-common openbox -y && \
-    wget --no-check-certificate -O /bin/dumb-init "https://github.com/Yelp/dumb-init/releases/download/v1.2.5/dumb-init_1.2.5_aarch64"
+    apt --no-install-recommends install wget winbind samba tigervnc-standalone-server tigervnc-common openbox systemd-coredump net-tools xterm gdb tigervnc-standalone-server
+-dbgsym libstdc++6-8-dbg -y && \
+    wget --no-check-certificate -O /bin/dumb-init "https://github.com/Yelp/dumb-init/releases/download/v1.2.5/dumb-init_1.2.5"
 
 
 COPY wine/simsun.ttc  /home/user/.wine/drive_c/windows/Fonts/simsun.ttc
