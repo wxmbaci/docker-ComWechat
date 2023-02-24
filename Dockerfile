@@ -15,12 +15,12 @@ EXPOSE 5905
 
 
 RUN apt update && \
-    apt --no-install-recommends install wget winbind samba tigervnc-standalone-server tigervnc-common openbox systemd-coredump net-tools xterm gdb tigervnc-standalone-server-dbgsym libstdc++6-8-dbg -y && \
-    wget --no-check-certificate -O /bin/dumb-init "https://github.com/Yelp/dumb-init/releases/download/v1.2.5/dumb-init_1.2.5"
+    apt --no-install-recommends install wget winbind samba tigervnc-standalone-server tigervnc-common openbox systemd-coredump net-tools xterm gdb -y && \
+    wget --no-check-certificate -O /bin/dumb-init "https://github.com/Yelp/dumb-init/releases/download/v1.2.5/dumb-init_1.2.5_x86_64"
 
 
 COPY wine/simsun.ttc  /home/user/.wine/drive_c/windows/Fonts/simsun.ttc
-# COPY wine/微信.lnk /home/user/.wine/drive_c/users/Public/Desktop/微信.lnk
+COPY wine/微信.lnk /home/user/.wine/drive_c/users/Public/Desktop/微信.lnk
 COPY wine/system.reg  /home/user/.wine/system.reg
 COPY wine/user.reg  /home/user/.wine/user.reg
 COPY wine/userdef.reg /home/user/.wine/userdef.reg
